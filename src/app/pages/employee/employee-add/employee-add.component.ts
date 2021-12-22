@@ -55,17 +55,31 @@ export class EmployeeAddComponent implements OnInit {
     }
   }
   submit(){
+      if(this.editMode){
+        console.log(this.addUserForm.value);
+        this.employeeService.editEmployee(this.id,this.addUserForm.value).subscribe({
+          next: (data) => {
+            this.sharedService.successToast('Employee updated succesfully');
+            this.router.navigate(['employee']);
+          },
+          error: (error) => {
+            this.error = error.error['errors'];
+            this.sharedService.errorToast(error.error['message'])
+        }
+        })
+      }else{
+        this.employeeService.addEmployee(this.addUserForm.value).subscribe({
+          next: (data) => {
+            this.sharedService.successToast('Employee added succesfully');
+            this.router.navigate(['employee']);
+          },
+          error: (error) => {
+            this.error = error.error['errors'];
+            this.sharedService.errorToast(error.error['message'])
+        }
+        })
+      }
 
-    this.employeeService.addEmployee(this.addUserForm.value).subscribe({
-      next: (data) => {
-        this.sharedService.successToast('Employee added succesfully');
-        this.router.navigate(['employee']);
-      },
-      error: (error) => {
-        this.error = error.error['errors'];
-        this.sharedService.errorToast(error.error['message'])
-    }
-    })
   }
 
   private initForm(){
