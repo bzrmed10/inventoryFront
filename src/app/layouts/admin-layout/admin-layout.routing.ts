@@ -1,15 +1,18 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { TablesComponent } from '../../pages/tables/tables.component';
+import { EmployeeComponent } from '../../pages/employee/employee.component';
+import { EmployeeListComponent } from '../../pages/employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from '../../pages/employee/employee-add/employee-add.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'tables',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent }
+    { path: 'employee',      component: EmployeeComponent,
+     children : [
+      {path:'' , component : EmployeeListComponent},
+      {path:'add' , component : EmployeeAddComponent},
+      {path:':id/edit' , component : EmployeeAddComponent}
+  ] }
+
 ];

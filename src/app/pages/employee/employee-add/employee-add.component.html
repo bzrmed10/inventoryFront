@@ -1,0 +1,141 @@
+<div class="container-fluid mt--5">
+  <div class="row">
+
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Add New Employee</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a [routerLink]="['/employee']" class="btn btn-sm btn-primary">All Employees</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addUserForm" (ngSubmit)="submit()">
+            <h6 class="heading-small text-muted mb-4">User information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Full Name</label>
+                    <input type="text"
+                           id="fullname"
+                           class="form-control form-control-alternative"
+                           formControlName="fullname">
+              <p class="text-danger" *ngIf="error.fullname"><em><small> {{ error.fullname }}</small></em></p>
+
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">Email address</label>
+                    <input
+                    type="email"
+                    id="email"
+                    class="form-control form-control-alternative"
+                    formControlName="email"
+                                  >
+              <p class="text-danger" *ngIf="error.email"><em><small> {{ error.email }}</small></em></p>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <hr class="my-4" />
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">Contact information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Joining date</label>
+                    <input
+                    type="date"
+                    id="joining_date"
+                    class="form-control form-control-alternative"
+                    formControlName="joining_date"
+                    >
+
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Salary</label>
+                    <input
+                    type="text"
+                    id="salary"
+                    class="form-control form-control-alternative"
+                    formControlName="salary" >
+                <p class="text-danger" *ngIf="error.salary"><em><small> {{ error.salary }}</small></em></p>
+
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">NID</label>
+                    <input
+                    type="text"
+                    id="nid"
+                    class="form-control form-control-alternative"
+                    formControlName="nid">
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-address">Address</label>
+                    <input
+                    id="adress"
+                    class="form-control form-control-alternative"
+                    type="text"
+                    formControlName="adress"
+                    >
+              <p class="text-danger" *ngIf="error.adress"><em><small> {{ error.adress }}</small></em></p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Phone</label>
+                    <input
+                    type="text"
+                    id="phone"
+                    class="form-control form-control-alternative"
+                    formControlName="phone"
+                     >
+              <p class="text-danger" *ngIf="error.phone"><em><small> {{ error.phone }}</small></em></p>
+
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-city">Photo</label>
+                    <input
+                    type="file"
+                    id="photo"
+                    class="form-control form-control-alternative"
+                    formControlName="photo"
+                    (change)="onFileChange($event)">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

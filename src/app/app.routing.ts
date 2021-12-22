@@ -42,7 +42,7 @@ import { AfterLoginService } from './services/after-login.service';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/login',  pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard',  pathMatch: 'full' },
 
   {
     path: 'login',
@@ -54,12 +54,27 @@ const routes: Routes = [
     component : RegisterComponent ,
     canActivate : [BeforeLoginService]
   },
-  {
-     path: 'dashboard',
-     component: AdminLayoutComponent,
-     canActivate : [AfterLoginService]
+  // {
+  //    path: 'dashboard',
+  //    component: AdminLayoutComponent,
+  //    canActivate : [AfterLoginService]
 
-    }];
+  //   },
+    {
+          path: '',
+          component: AdminLayoutComponent,
+          canActivate : [AfterLoginService],
+          children: [
+            {
+              path: '',
+              loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+            }
+          ]
+        },
+     {
+          path: '**',
+          redirectTo: 'dashboard'
+        }];
 
 @NgModule({
   imports: [

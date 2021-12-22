@@ -1,0 +1,99 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Employee</h3>
+              </div>
+              <div class="col text-right">
+                <a [routerLink]="['add']" class="btn btn-sm btn-primary">Add new employee</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Full name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Salary</th>
+                  <th scope="col">Joining date</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of employees">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                        <img alt="user" [src]="employee.photo ? employee.photo : 'https://ui-avatars.com/api/?name='+employee.fullname+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
+                      </a>
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{employee.fullname}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td>
+                    {{employee.email}}
+                  </td>
+                  <td>
+                    {{employee.phone}}
+                  </td>
+                  <td>
+                    {{employee.salary | currency}}
+                  </td>
+                  <td>
+                    {{employee.joining_date | date}}
+                  </td>
+                  <td class="text-right">
+                    <div ngbDropdown placement="bottom-right">
+                      <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </a>
+                      <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                        <a class="dropdown-item" [routerLink]="[employee.id,'edit']">Edit</a>
+                        <a class="dropdown-item"  (click)="deleteEmployee(employee.id)">Delete</a>
+
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+            <nav aria-label="...">
+              <ul class="pagination justify-content-end mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                    <i class="fas fa-angle-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="javascript:void(0)">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="javascript:void(0)">
+                    <i class="fas fa-angle-right"></i>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

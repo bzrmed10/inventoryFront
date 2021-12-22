@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,12 +12,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { EmployeeComponent } from './pages/employee/employee.component';
+import { EmployeeListComponent } from './pages/employee/employee-list/employee-list.component';
+import { EmployeeAddComponent } from './pages/employee/employee-add/employee-add.component';
+
 
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
     NgbModule,
@@ -27,7 +32,10 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    EmployeeComponent,
+    EmployeeListComponent,
+    EmployeeAddComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

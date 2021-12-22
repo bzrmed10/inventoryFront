@@ -9,15 +9,15 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/Employee', title: 'Employee',  icon:'ni-single-02', class: '' },
-    { path: '/Suppliers', title: 'Suppliers',  icon:'ni-delivery-fast', class: '' },
-    { path: '/Category', title: 'Category',  icon:'ni-archive-2', class: '' },
-    { path: '/Products', title: 'Products',  icon:'ni-bag-17', class: '' },
-    { path: '/Expense', title: 'Expense',  icon:'ni-money-coins', class: '' },
-    { path: '/Customers', title: 'Customers',  icon:'ni-world-2', class: '' },
-    { path: '/Salary', title: 'Salary',  icon:'ni-credit-card', class: '' },
-    { path: '/Orders', title: 'Orders',  icon:'ni-cart', class: '' },
-    { path: '/Stock', title: 'Stock',  icon:'ni-shop', class: '' }
+    { path: '/employee', title: 'Employee',  icon:'ni-single-02', class: '' },
+    { path: '/suppliers', title: 'Suppliers',  icon:'ni-delivery-fast', class: '' },
+    { path: '/category', title: 'Category',  icon:'ni-archive-2', class: '' },
+    { path: '/products', title: 'Products',  icon:'ni-bag-17', class: '' },
+    { path: '/expense', title: 'Expense',  icon:'ni-money-coins', class: '' },
+    { path: '/customers', title: 'Customers',  icon:'ni-world-2', class: '' },
+    { path: '/salary', title: 'Salary',  icon:'ni-credit-card', class: '' },
+    { path: '/orders', title: 'Orders',  icon:'ni-cart', class: '' },
+    { path: '/stock', title: 'Stock',  icon:'ni-shop', class: '' }
 
 ];
 
