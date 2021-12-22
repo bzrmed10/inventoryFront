@@ -10,19 +10,13 @@ export class EmployeeService {
   constructor(private http:HttpClient) { }
 
 
-  getAllEmployees(){
+  getAllEmployees(requestObj){
 
-    return this.http.get<Employee[]>(this.REST_API_SERVER+'/employee').pipe(map( (result) =>{
-      result.forEach(res =>{
-        res.photo = res.photo!= null ? 'http://127.0.0.1/inventory/public/'+res.photo : null;
-      })
-
-       return result
-    }));
+    return this.http.post<any>(this.REST_API_SERVER+'/employee',requestObj);
    }
 
    addEmployee(employee :Employee){
-    return this.http.post(this.REST_API_SERVER+'/employee',employee);
+    return this.http.post(this.REST_API_SERVER+'/employee/store',employee);
   }
 
    editEmployee(id : number,newEmployee : Employee){

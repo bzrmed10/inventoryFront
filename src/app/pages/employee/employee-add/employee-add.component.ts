@@ -56,7 +56,7 @@ export class EmployeeAddComponent implements OnInit {
   }
   submit(){
       if(this.editMode){
-        console.log(this.addUserForm.value);
+
         this.employeeService.editEmployee(this.id,this.addUserForm.value).subscribe({
           next: (data) => {
             this.sharedService.successToast('Employee updated succesfully');
@@ -68,6 +68,7 @@ export class EmployeeAddComponent implements OnInit {
         }
         })
       }else{
+
         this.employeeService.addEmployee(this.addUserForm.value).subscribe({
           next: (data) => {
             this.sharedService.successToast('Employee added succesfully');

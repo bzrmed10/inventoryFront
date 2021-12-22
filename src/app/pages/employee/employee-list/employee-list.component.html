@@ -45,7 +45,8 @@
                     {{employee.phone}}
                   </td>
                   <td>
-                    {{employee.salary | currency}}
+                    <span class="badge badge-success">{{employee.salary | currency}}</span>
+
                   </td>
                   <td>
                     {{employee.joining_date | date}}
@@ -68,7 +69,14 @@
             </table>
           </div>
           <div class="card-footer py-4">
-            <nav aria-label="...">
+
+            <ngb-pagination class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getEmployeeData()"
+             aria-label="Default pagination"></ngb-pagination>
+            <!-- <nav aria-label="...">
               <ul class="pagination justify-content-end mb-0">
                 <li class="page-item disabled">
                   <a class="page-link" href="javascript:void(0)" tabindex="-1">
@@ -90,7 +98,7 @@
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
           </div>
         </div>
       </div>
