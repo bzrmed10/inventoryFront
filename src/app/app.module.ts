@@ -15,6 +15,9 @@ import { ComponentsModule } from './components/components.module';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { EmployeeListComponent } from './pages/employee/employee-list/employee-list.component';
 import { EmployeeAddComponent } from './pages/employee/employee-add/employee-add.component';
+import { SupplierComponent } from './pages/supplier/supplier.component';
+import { SupplierAddComponent } from './pages/supplier/supplier-add/supplier-add.component';
+import { SupplierListComponent } from './pages/supplier/supplier-list/supplier-list.component';
 
 
 
@@ -35,7 +38,10 @@ import { EmployeeAddComponent } from './pages/employee/employee-add/employee-add
     AuthLayoutComponent,
     EmployeeComponent,
     EmployeeListComponent,
-    EmployeeAddComponent
+    EmployeeAddComponent,
+    SupplierComponent,
+    SupplierAddComponent,
+    SupplierListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

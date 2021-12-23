@@ -1,0 +1,96 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Suppliers</h3>
+              </div>
+              <div class="col text-right">
+                <a [routerLink]="['add']" class="btn btn-sm btn-primary">Add new Supplier</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Store name</th>
+                  <th scope="col">Supplier Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="suppliers ; else nodata">
+                <tr *ngFor="let supplier of suppliers">
+                  <td>
+                    <span class="badge badge-pill badge-primary font12"><i class="uil uil-shop"></i>  {{supplier.shopname}}</span>
+                  </td>
+                  <th scope="row">
+
+
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{supplier.name}}</span>
+                      </div>
+
+                  </th>
+
+
+                  <td>
+                    {{supplier.email}}
+                  </td>
+                  <td>
+                    {{supplier.phone}}
+                  </td>
+
+                  <td class="text-right">
+                    <a class="btn btn-icon-only text-danger" (click)="deleteSupplier(supplier.id)">
+                      <i class="uil uil-trash-alt"></i>
+                    </a>
+                    <a class="btn btn-icon-only text-success" [routerLink]="[supplier.id,'edit']">
+                      <i class="uil uil-edit-alt"></i>
+                    </a>
+
+                    <!-- <div ngbDropdown placement="bottom-right">
+                      <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                        <i class="fas fa-ellipsis-v"></i>
+                      </a>
+                      <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                        <a class="dropdown-item" >Edit</a>
+                        <a class="dropdown-item"  (click)="deleteSupplier(supplier.id)">Delete</a>
+
+                      </div>
+                    </div> -->
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No suppliers</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination
+            *ngIf="totalItems>0"
+            class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getSupplierData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
