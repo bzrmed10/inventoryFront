@@ -1,29 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
-import { SupplierService } from '../supplier.service';
+import { CategoryService } from '../category.service';
 import Swal from 'sweetalert2' ;
 
 @Component({
-  selector: 'app-supplier-list',
-  templateUrl: './supplier-list.component.html',
-  styleUrls: ['./supplier-list.component.scss']
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.scss']
 })
-export class SupplierListComponent implements OnInit {
+export class CategoryListComponent implements OnInit {
 
-  suppliers : any;
+  categories : any;
   page = 1 ;
   limit = 5;
   skip : any;
   totalItems;
-  constructor(private supplierService : SupplierService,
+  constructor(private categoryService : CategoryService,
               private sharedSercice : SharedService) { }
 
   ngOnInit(): void {
-    this.getSupplierData();
+    this.getCategoryData();
 
+    this.categoryService.newChanges.subscribe((result : Boolean) =>{
+      if(result){
+        this.getCategoryData();
+        this.categoryService.newChanges.next(false);
+
+      }
+    });
   }
 
-  getSupplierData(){
+  getCategoryData(){
         if(this.page == 1){
           this.skip = 0;
         }else{
@@ -33,10 +40,10 @@ export class SupplierListComponent implements OnInit {
           'limit' : this.limit,
           'skip' :this.skip
         }
-            this.supplierService.getAllSuppliers(requestObj).subscribe({
+            this.categoryService.getAllCategories(requestObj).subscribe({
           next: (res : any) => {
 
-              this.suppliers = Object.keys(res.data).length > 0 ? Object.values(res.data) : null;
+              this.categories = Object.keys(res.data).length > 0 ? Object.values(res.data) : null;
               this.totalItems = res.total;
 
           },
@@ -44,10 +51,10 @@ export class SupplierListComponent implements OnInit {
       });
   }
 
-  deleteSupplier(id){
+  deleteCategory(id){
 
     Swal.fire({
-      title: '<h3>Do you want to delete Supplier ?</h3>',
+      title: '<h3>Do you want to delete Category ?</h3>',
       icon: 'question',
       iconColor:"#fec9bd80",
       showCancelButton: true,
@@ -55,14 +62,14 @@ export class SupplierListComponent implements OnInit {
     }).then((result) => {
 
       if (result.isConfirmed) {
-        this.supplierService.deleteSupplier(id).subscribe({
+        this.categoryService.deleteCategory(id).subscribe({
           next: result => {
-            Swal.fire('Supplier deleted succesfully', '', 'success')
+            Swal.fire('Category deleted succesfully', '', 'success')
             this.ngOnInit();
           },
           error: error => {
             // this.sharedSercice.errorToast('fail to delete the supplier');
-            Swal.fire('fail to delete the supplier', '', 'success')
+            Swal.fire('fail to delete the category', '', 'success')
           }
         });
 
@@ -70,13 +77,5 @@ export class SupplierListComponent implements OnInit {
     })
 
 
-
-
-
-
-
-
   }
-
-
 }

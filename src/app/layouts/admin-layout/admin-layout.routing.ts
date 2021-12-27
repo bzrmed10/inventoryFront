@@ -7,6 +7,9 @@ import { EmployeeAddComponent } from '../../pages/employee/employee-add/employee
 import { SupplierComponent } from '../../pages/supplier/supplier.component';
 import { SupplierListComponent } from '../../pages/supplier/supplier-list/supplier-list.component';
 import { SupplierAddComponent } from '../../pages/supplier/supplier-add/supplier-add.component';
+import { CategoryComponent } from 'src/app/pages/category/category.component';
+import { CategoryListComponent } from 'src/app/pages/category/category-list/category-list.component';
+import { CategoryAddComponent } from 'src/app/pages/category/category-add/category-add.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -22,6 +25,11 @@ export const AdminLayoutRoutes: Routes = [
       {path:'' , component : SupplierListComponent},
       {path:'add' , component : SupplierAddComponent},
       {path:':id/edit' , component : SupplierAddComponent}
+  ] },
+  { path: 'category',      component: CategoryComponent,
+     children : [
+      {path:'' , component : CategoryAddComponent},
+      {path:':id/edit' , component : CategoryAddComponent}
   ] }
 
 ];

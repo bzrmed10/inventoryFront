@@ -18,6 +18,9 @@ import { EmployeeAddComponent } from './pages/employee/employee-add/employee-add
 import { SupplierComponent } from './pages/supplier/supplier.component';
 import { SupplierAddComponent } from './pages/supplier/supplier-add/supplier-add.component';
 import { SupplierListComponent } from './pages/supplier/supplier-list/supplier-list.component';
+import { CategoryComponent } from './pages/category/category.component';
+import { CategoryListComponent } from './pages/category/category-list/category-list.component';
+import { CategoryAddComponent } from './pages/category/category-add/category-add.component';
 
 
 
@@ -41,7 +44,10 @@ import { SupplierListComponent } from './pages/supplier/supplier-list/supplier-l
     EmployeeAddComponent,
     SupplierComponent,
     SupplierAddComponent,
-    SupplierListComponent
+    SupplierListComponent,
+    CategoryComponent,
+    CategoryListComponent,
+    CategoryAddComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

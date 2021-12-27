@@ -1,0 +1,45 @@
+<div class="container-fluid mt--5">
+  <div class="row">
+
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">{{ editMode ? 'Update Category' : 'Add New Category'}}</h3>
+            </div>
+            <div class="col-4 text-right" *ngIf="editMode">
+              <a [routerLink]="['/category']" class="btn btn-sm btn-primary">Add new Category</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addCategoryForm" (ngSubmit)="submit()">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-10">
+                  <div class="form-group">
+
+                    <input type="text"
+                           placeholder="Category Name"
+                           id="category_name"
+                           class="form-control form-control-alternative"
+                           formControlName="category_name">
+              <p class="text-danger" *ngIf="error.category_name"><em><small> {{ error.category_name }}</small></em></p>
+
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <button type="submit" class="btn btn-success">{{ editMode ? 'Update' : 'Add'}}</button>
+
+                </div>
+
+               </div>
+              </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

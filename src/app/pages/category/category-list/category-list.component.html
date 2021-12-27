@@ -1,0 +1,78 @@
+  <!-- Page content -->
+  <div class="container-fluid mt-2">
+    <!-- Table -->
+
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Categories</h3>
+              </div>
+
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Category name</th>
+                  <th scope="col">Created At</th>
+                  <th scope="col">Updated At</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="categories ; else nodata">
+                <tr *ngFor="let category of categories">
+                  <td>
+
+                      <span class="mb-0 text-sm"><b>{{category.category_name}}</b></span>
+
+                  </td>
+                  <td scope="row">
+                        {{category.created_at | date:'medium' }}
+                  </td>
+
+
+                  <td>
+                    {{category.updated_at | date:'medium' }}
+                  </td>
+
+
+                  <td class="text-right">
+                    <a class="btn btn-icon-only text-danger" (click)="deleteCategory(category.id)">
+                      <i class="uil uil-trash-alt"></i>
+                    </a>
+                    <a class="btn btn-icon-only text-success" [routerLink]="[category.id,'edit']">
+                      <i class="uil uil-edit-alt"></i>
+                    </a>
+
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No Category</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination
+            *ngIf="totalItems>0"
+            class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getCategoryData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
