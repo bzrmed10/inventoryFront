@@ -1,0 +1,76 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Expenses</h3>
+              </div>
+              <div class="col text-right">
+                <a [routerLink]="['add']" class="btn btn-sm btn-primary">Add new Expense</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Expense Details</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Expense date</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="expenses ; else nodata">
+                <tr *ngFor="let expense of expenses">
+                  <td>
+                     {{expense.details | slice:0:100}}
+                  </td>
+                  <td>
+                    <span class="badge badge-success">{{expense.amount | currency}}</span>
+                  </td>
+                  <td>
+                    {{expense.expense_date | date }}
+                  </td>
+
+
+                  <td class="text-right">
+                    <a class="btn btn-icon-only text-danger" (click)="deleteExpense(expense.id)">
+                      <i class="uil uil-trash-alt"></i>
+                    </a>
+                    <a class="btn btn-icon-only text-success" [routerLink]="[expense.id,'edit']">
+                      <i class="uil uil-edit-alt"></i>
+                    </a>
+
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No suppliers</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination
+            *ngIf="totalItems>0"
+            class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getExpenseData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

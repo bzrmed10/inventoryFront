@@ -13,6 +13,9 @@ import { CategoryAddComponent } from 'src/app/pages/category/category-add/catego
 import { ProductComponent } from '../../pages/product/product.component';
 import { ProductListComponent } from '../../pages/product/product-list/product-list.component';
 import { ProductAddComponent } from '../../pages/product/product-add/product-add.component';
+import { ExpenseComponent } from 'src/app/pages/expense/expense.component';
+import { ExpenseListComponent } from 'src/app/pages/expense/expense-list/expense-list.component';
+import { ExpenseAddComponent } from 'src/app/pages/expense/expense-add/expense-add.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -34,10 +37,16 @@ export const AdminLayoutRoutes: Routes = [
       {path:'' , component : CategoryAddComponent},
       {path:':id/edit' , component : CategoryAddComponent}
   ] },
-  { path: 'product',      component: ProductComponent,
+  { path: 'product', component: ProductComponent,
   children : [
    {path:'' , component : ProductListComponent},
    {path:'add' , component : ProductAddComponent},
    {path:':id/edit' , component : ProductAddComponent}
+] },
+{ path: 'expense', component: ExpenseComponent,
+  children : [
+   {path:'' , component : ExpenseListComponent},
+   {path:'add' , component : ExpenseAddComponent},
+   {path:':id/edit' , component : ExpenseAddComponent}
 ] }
 ];
