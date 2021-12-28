@@ -21,6 +21,9 @@ import { SupplierListComponent } from './pages/supplier/supplier-list/supplier-l
 import { CategoryComponent } from './pages/category/category.component';
 import { CategoryListComponent } from './pages/category/category-list/category-list.component';
 import { CategoryAddComponent } from './pages/category/category-add/category-add.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ProductListComponent } from './pages/product/product-list/product-list.component';
+import { ProductAddComponent } from './pages/product/product-add/product-add.component';
 
 
 
@@ -47,7 +50,10 @@ import { CategoryAddComponent } from './pages/category/category-add/category-add
     SupplierListComponent,
     CategoryComponent,
     CategoryListComponent,
-    CategoryAddComponent
+    CategoryAddComponent,
+    ProductComponent,
+    ProductListComponent,
+    ProductAddComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

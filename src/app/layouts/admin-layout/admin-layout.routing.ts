@@ -10,6 +10,9 @@ import { SupplierAddComponent } from '../../pages/supplier/supplier-add/supplier
 import { CategoryComponent } from 'src/app/pages/category/category.component';
 import { CategoryListComponent } from 'src/app/pages/category/category-list/category-list.component';
 import { CategoryAddComponent } from 'src/app/pages/category/category-add/category-add.component';
+import { ProductComponent } from '../../pages/product/product.component';
+import { ProductListComponent } from '../../pages/product/product-list/product-list.component';
+import { ProductAddComponent } from '../../pages/product/product-add/product-add.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -30,6 +33,11 @@ export const AdminLayoutRoutes: Routes = [
      children : [
       {path:'' , component : CategoryAddComponent},
       {path:':id/edit' , component : CategoryAddComponent}
-  ] }
-
+  ] },
+  { path: 'product',      component: ProductComponent,
+  children : [
+   {path:'' , component : ProductListComponent},
+   {path:'add' , component : ProductAddComponent},
+   {path:':id/edit' , component : ProductAddComponent}
+] }
 ];

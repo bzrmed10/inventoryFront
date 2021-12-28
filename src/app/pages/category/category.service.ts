@@ -17,6 +17,10 @@ export class CategoryService {
 
     return this.http.post<any>(this.REST_API_SERVER+'/category',requestObj);
    }
+   getAllCat(){
+
+    return this.http.get(this.REST_API_SERVER+'/categories');
+   }
 
    addCategory(category :Category){
     return this.http.post(this.REST_API_SERVER+'/category/store',category);

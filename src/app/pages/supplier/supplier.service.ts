@@ -14,6 +14,10 @@ export class SupplierService {
 
     return this.http.post<any>(this.REST_API_SERVER+'/supplier',requestObj);
    }
+   getAllSup(){
+
+    return this.http.get(this.REST_API_SERVER+'/suppliers');
+   }
 
    addSupplier(supplier :Supplier){
     return this.http.post(this.REST_API_SERVER+'/supplier/store',supplier);

@@ -1,0 +1,98 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Products</h3>
+              </div>
+              <div class="col text-right">
+                <a [routerLink]="['add']" class="btn btn-sm btn-primary">Add new Product</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Product name</th>
+                  <th scope="col">Product Code</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Supplier</th>
+                  <th scope="col">Buying Price</th>
+                  <th scope="col">Selling Price</th>
+
+                  <th scope="col">Product Quantity</th>
+                  <th scope="col"></th>
+
+                </tr>
+              </thead>
+              <tbody *ngIf="products ; else nodata">
+                <tr *ngFor="let product of products">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <a href="javascript:void(0)" class="">
+                        <img class="product_img" alt="user" [src]="product.product_image ? product.product_image : 'https://ui-avatars.com/api/?name='+product.product_name+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
+                      </a>
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{product.product_name}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td>
+                    {{product.product_code}}
+                  </td>
+                  <td>
+                    {{product.category.category_name }}
+                  </td>
+                  <td>
+                    <span class="badge badge-pill badge-primary font12"><i class="uil uil-shop"></i>{{product.supplier.shopname}}</span>
+                  </td>
+                  <td class="text-danger">
+                    <b>{{product.buying_price | currency}}</b>
+                  </td>
+                  <td class="text-success">
+                    <b>{{product.selling_price | currency}}</b>
+
+                  </td>
+
+                  <td>
+                    {{product.product_quantity }}
+                  </td>
+
+                  <td class="text-right">
+                    <a class="btn btn-icon-only text-danger" (click)="deleteProduct(product.id)">
+                      <i class="uil uil-trash-alt"></i>
+                    </a>
+                    <a class="btn btn-icon-only text-success" [routerLink]="[product.id,'edit']">
+                      <i class="uil uil-edit-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No Products</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getProductsData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
