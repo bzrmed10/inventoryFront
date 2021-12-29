@@ -1,0 +1,55 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List of Salaries by Month</h3>
+              </div>
+              <div class="col-4 text-right">
+                <a [routerLink]="['/salary']" class="btn btn-sm btn-primary">All Employees Salaries</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Month</th>
+
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="months ; else nodata">
+                <tr *ngFor="let month of months">
+                 <td>
+                  <b>{{ month.salary_month }}</b>
+                 </td>
+
+
+                  <td class="text-right">
+                    <a  [routerLink]="['/salary','month',month.salary_month]"  class="btn btn-outline-default btn-sm">Pay History</a>
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No suppliers</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

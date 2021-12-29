@@ -58,8 +58,7 @@ export class ProductListComponent implements OnInit {
             this.ngOnInit();
           },
           error: error => {
-            // this.sharedSercice.errorToast('fail to delete the supplier');
-            Swal.fire('fail to delete the Product', '', 'success')
+            Swal.fire('fail to delete the Product', '', 'error')
           }
         });
 

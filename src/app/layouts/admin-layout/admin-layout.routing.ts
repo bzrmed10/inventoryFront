@@ -16,6 +16,11 @@ import { ProductAddComponent } from '../../pages/product/product-add/product-add
 import { ExpenseComponent } from 'src/app/pages/expense/expense.component';
 import { ExpenseListComponent } from 'src/app/pages/expense/expense-list/expense-list.component';
 import { ExpenseAddComponent } from 'src/app/pages/expense/expense-add/expense-add.component';
+import { SalaryComponent } from 'src/app/pages/salary/salary.component';
+import { EmplyeesSalariesComponent } from 'src/app/pages/salary/emplyees-salaries/emplyees-salaries.component';
+import { PaySalaryComponent } from '../../pages/salary/pay-salary/pay-salary.component';
+import { MonthsPayComponent } from '../../pages/salary/months-pay/months-pay.component';
+import { PayPerMonthComponent } from 'src/app/pages/salary/pay-per-month/pay-per-month.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -48,5 +53,12 @@ export const AdminLayoutRoutes: Routes = [
    {path:'' , component : ExpenseListComponent},
    {path:'add' , component : ExpenseAddComponent},
    {path:':id/edit' , component : ExpenseAddComponent}
+] },
+{ path: 'salary', component: SalaryComponent,
+  children : [
+   {path:'' , component : EmplyeesSalariesComponent},
+   {path:'pay/:id' , component : PaySalaryComponent},
+   {path:'monthpay' , component : MonthsPayComponent},
+   {path:'month/:month' , component : PayPerMonthComponent}
 ] }
 ];

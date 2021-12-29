@@ -61,8 +61,7 @@ export class ExpenseListComponent implements OnInit {
                         this.ngOnInit();
                       },
                       error: error => {
-                        // this.sharedSercice.errorToast('fail to delete the supplier');
-                        Swal.fire('fail to delete the Expense', '', 'success')
+                        Swal.fire('fail to delete the Expense', '', 'error')
                       }
                     });
 

@@ -27,6 +27,12 @@ import { ProductAddComponent } from './pages/product/product-add/product-add.com
 import { ExpenseComponent } from './pages/expense/expense.component';
 import { ExpenseListComponent } from './pages/expense/expense-list/expense-list.component';
 import { ExpenseAddComponent } from './pages/expense/expense-add/expense-add.component';
+import { SalaryComponent } from './pages/salary/salary.component';
+import { EmplyeesSalariesComponent } from './pages/salary/emplyees-salaries/emplyees-salaries.component';
+import { PaySalaryComponent } from './pages/salary/pay-salary/pay-salary.component';
+import { MonthsPayComponent } from './pages/salary/months-pay/months-pay.component';
+import { PayPerMonthComponent } from './pages/salary/pay-per-month/pay-per-month.component';
+import { StockComponent } from './pages/stock/stock.component';
 
 
 
@@ -59,7 +65,13 @@ import { ExpenseAddComponent } from './pages/expense/expense-add/expense-add.com
     ProductAddComponent,
     ExpenseComponent,
     ExpenseListComponent,
-    ExpenseAddComponent
+    ExpenseAddComponent,
+    SalaryComponent,
+    EmplyeesSalariesComponent,
+    PaySalaryComponent,
+    MonthsPayComponent,
+    PayPerMonthComponent,
+    StockComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

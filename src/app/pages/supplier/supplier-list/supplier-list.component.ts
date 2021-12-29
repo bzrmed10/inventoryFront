@@ -62,7 +62,7 @@ export class SupplierListComponent implements OnInit {
           },
           error: error => {
             // this.sharedSercice.errorToast('fail to delete the supplier');
-            Swal.fire('fail to delete the supplier', '', 'success')
+            Swal.fire('fail to delete the supplier', '', 'error')
           }
         });
 

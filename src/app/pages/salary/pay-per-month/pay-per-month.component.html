@@ -1,0 +1,77 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">pay list of {{ month }}</h3>
+              </div>
+              <div class="col text-right">
+                <a [routerLink]="['/salary','monthpay']" class="btn btn-sm btn-primary">Salaries by Month</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Full name</th>
+                  <th scope="col">Salary</th>
+                  <th scope="col">Salary Month</th>
+                  <th scope="col">Salary Year</th>
+                  <th scope="col">Pay Date</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="salaries ; else nodata" >
+                <tr *ngFor="let salary of salaries">
+                  <td scope="row">
+                        <b>{{salary.fullname}}</b>
+                  </td>
+                  <td>
+                    <span class="badge badge-success">{{salary.salary | currency}}</span>
+
+                  </td>
+                  <td>
+                    {{salary.salary_month}}
+                  </td>
+                  <td>
+                    {{salary.salary_year}}
+                  </td>
+                  <td>
+                    {{salary.salary_date}}
+                  </td>
+                  <td class="text-right">
+                    <a class="btn btn-icon-only text-danger" (click)="deletePay(salary.id)">
+                      <i class="uil uil-trash-alt"></i>
+                    </a>
+
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No suppliers</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getSalariesData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
