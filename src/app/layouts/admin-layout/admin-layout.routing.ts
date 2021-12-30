@@ -21,6 +21,10 @@ import { EmplyeesSalariesComponent } from 'src/app/pages/salary/emplyees-salarie
 import { PaySalaryComponent } from '../../pages/salary/pay-salary/pay-salary.component';
 import { MonthsPayComponent } from '../../pages/salary/months-pay/months-pay.component';
 import { PayPerMonthComponent } from 'src/app/pages/salary/pay-per-month/pay-per-month.component';
+import { StockComponent } from 'src/app/pages/stock/stock.component';
+import { CustomerComponent } from '../../pages/customer/customer.component';
+import { CustomerListComponent } from '../../pages/customer/customer-list/customer-list.component';
+import { CustomerAddComponent } from 'src/app/pages/customer/customer-add/customer-add.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -60,5 +64,12 @@ export const AdminLayoutRoutes: Routes = [
    {path:'pay/:id' , component : PaySalaryComponent},
    {path:'monthpay' , component : MonthsPayComponent},
    {path:'month/:month' , component : PayPerMonthComponent}
-] }
+] },
+{ path: 'stock', component: StockComponent},
+{ path: 'customer',      component: CustomerComponent,
+     children : [
+      {path:'' , component : CustomerListComponent},
+      {path:'add' , component : CustomerAddComponent},
+      {path:':id/edit' , component : CustomerAddComponent}
+  ] }
 ];

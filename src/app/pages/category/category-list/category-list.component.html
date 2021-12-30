@@ -23,7 +23,7 @@
                   <th scope="col">Action</th>
                 </tr>
               </thead>
-              <tbody *ngIf="categories ; else nodata">
+              <tbody *ngIf="(totalItems != 0) ; else nodata">
                 <tr *ngFor="let category of categories">
                   <td>
 

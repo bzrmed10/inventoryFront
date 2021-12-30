@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { Product } from './product.model';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class ProductService {
   getAllProducts(requestObj){
 
     return this.http.post<any>(this.REST_API_SERVER+'/product',requestObj);
+
    }
 
    addProduct(product :Product){
@@ -22,7 +24,6 @@ export class ProductService {
 
    editProduct(id : number,newProduct : Product){
     return this.http.put(this.REST_API_SERVER+'/product/'+id,newProduct);
-
   }
 
 
@@ -33,5 +34,8 @@ export class ProductService {
 
   getProductByIdApi(id : number){
     return this.http.get(this.REST_API_SERVER+'/product/'+id);
+  }
+  changeQty(id : number,newValue : any){
+    return this.http.put(this.REST_API_SERVER+'/product/quantity/'+id,newValue);
   }
 }

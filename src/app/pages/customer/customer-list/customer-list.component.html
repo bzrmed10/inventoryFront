@@ -7,10 +7,10 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">pay list of {{ month }}</h3>
+                <h3 class="mb-0">List Customers </h3>
               </div>
               <div class="col text-right">
-                <a [routerLink]="['/salary','monthpay']" class="btn btn-sm btn-primary">Salaries by Month</a>
+                <a [routerLink]="['add']" class="btn btn-sm btn-primary">Add new Customer</a>
               </div>
             </div>
           </div>
@@ -19,43 +19,44 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Full name</th>
-                  <th scope="col">Salary</th>
-                  <th scope="col">Salary Month</th>
-                  <th scope="col">Salary Year</th>
-                  <th scope="col">Pay Date</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
-              <tbody *ngIf="(totalItems != 0) ; else nodata" >
-                <tr *ngFor="let salary of salaries">
-                  <td scope="row">
-                        <b>{{salary.fullname}}</b>
+              <tbody *ngIf=" (totalItems != 0) ; else nodata">
+                <tr *ngFor="let customer of customers">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                        <img alt="user" [src]="customer.photo ? customer.photo : 'https://ui-avatars.com/api/?name='+customer.fullname+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
+                      </a>
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{customer.fullname}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td>
+                    {{customer.email}}
                   </td>
                   <td>
-                    <span class="badge badge-success">{{salary.salary | currency}}</span>
+                    {{customer.phone}}
+                  </td>
 
-                  </td>
-                  <td>
-                    {{salary.salary_month}}
-                  </td>
-                  <td>
-                    {{salary.salary_year}}
-                  </td>
-                  <td>
-                    {{salary.salary_date}}
-                  </td>
                   <td class="text-right">
-                    <a class="btn btn-icon-only text-danger" (click)="deletePay(salary.id)">
+                    <a class="btn btn-icon-only text-danger" (click)="deleteCustomer(customer.id)">
                       <i class="uil uil-trash-alt"></i>
                     </a>
-
+                    <a class="btn btn-icon-only text-success" [routerLink]="[customer.id,'edit']">
+                      <i class="uil uil-edit-alt"></i>
+                    </a>
                   </td>
                 </tr>
 
               </tbody>
               <ng-template #nodata>
                 <tr>
-                  <td colspan="5" class="d-flex justify-center"> No data</td>
+                  <td colspan="5" class="d-flex justify-center"> No Customer</td>
                 </tr>
               </ng-template>
             </table>
@@ -66,9 +67,8 @@
             [collectionSize]="totalItems"
             [pageSize]="limit"
              [(page)]="page"
-             (pageChange)="getSalariesData()"
+             (pageChange)="getCustomersData()"
              aria-label="Default pagination"></ngb-pagination>
-
           </div>
         </div>
       </div>

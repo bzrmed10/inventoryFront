@@ -30,7 +30,7 @@
 
                 </tr>
               </thead>
-              <tbody *ngIf="products ; else nodata">
+              <tbody *ngIf="(totalItems != 0) ; else nodata">
                 <tr *ngFor="let product of products">
                   <th scope="row">
                     <div class="media align-items-center">

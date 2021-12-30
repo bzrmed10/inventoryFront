@@ -25,7 +25,7 @@
                   <th scope="col"></th>
                 </tr>
               </thead>
-              <tbody *ngIf="expenses ; else nodata">
+              <tbody *ngIf="(totalItems != 0) ; else nodata">
                 <tr *ngFor="let expense of expenses">
                   <td>
                      {{expense.details | slice:0:100}}

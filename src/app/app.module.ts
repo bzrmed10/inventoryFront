@@ -33,6 +33,9 @@ import { PaySalaryComponent } from './pages/salary/pay-salary/pay-salary.compone
 import { MonthsPayComponent } from './pages/salary/months-pay/months-pay.component';
 import { PayPerMonthComponent } from './pages/salary/pay-per-month/pay-per-month.component';
 import { StockComponent } from './pages/stock/stock.component';
+import { CustomerComponent } from './pages/customer/customer.component';
+import { CustomerListComponent } from './pages/customer/customer-list/customer-list.component';
+import { CustomerAddComponent } from './pages/customer/customer-add/customer-add.component';
 
 
 
@@ -71,7 +74,10 @@ import { StockComponent } from './pages/stock/stock.component';
     PaySalaryComponent,
     MonthsPayComponent,
     PayPerMonthComponent,
-    StockComponent
+    StockComponent,
+    CustomerComponent,
+    CustomerListComponent,
+    CustomerAddComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

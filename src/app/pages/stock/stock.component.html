@@ -1,1 +1,94 @@
-<p>stock works!</p>
+
+<div class="header bg-gradient-primary pb-3 pt-5 pt-md-8">
+  <div class="container-fluid">
+
+  </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Products</h3>
+              </div>
+
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Product name</th>
+                  <th scope="col">Product Code</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Supplier</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col"></th>
+
+                </tr>
+              </thead>
+              <tbody *ngIf="(totalItems != 0) ; else nodata">
+                <tr *ngFor="let product of products">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <a href="javascript:void(0)" class="">
+                        <img class="product_img" alt="user" [src]="product.product_image ? product.product_image : 'https://ui-avatars.com/api/?name='+product.product_name+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
+                      </a>
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{product.product_name}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td>
+                    {{product.product_code}}
+                  </td>
+                  <td>
+                    {{product.category.category_name }}
+                  </td>
+                  <td>
+                    <span class="badge badge-pill badge-primary font12"><i class="uil uil-shop"></i>{{product.supplier.shopname}}</span>
+                  </td>
+                  <td [innerHtml]="product.status"></td>
+
+
+                  <td>
+                    {{product.product_quantity }}
+                  </td>
+
+                  <td class="text-right">
+
+                    <a class="btn btn-icon-only text-primary"
+                     (click)="addToStock(product.product_name,product.id,product.product_quantity)">
+                      <i class="uil uil-create-dashboard"></i>
+                    </a>
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No Products</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getProductsData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
-import { SupplierService } from '../supplier.service';
+import { CustomerService } from '../customer.service';
 import Swal from 'sweetalert2' ;
 
 @Component({
-  selector: 'app-supplier-list',
-  templateUrl: './supplier-list.component.html',
-  styleUrls: ['./supplier-list.component.scss']
+  selector: 'app-customer-list',
+  templateUrl: './customer-list.component.html',
+  styleUrls: ['./customer-list.component.scss']
 })
-export class SupplierListComponent implements OnInit {
+export class CustomerListComponent implements OnInit {
 
-  suppliers : any;
+  customers : any;
   page = 1 ;
   limit = 5;
   skip : any;
   totalItems;
-  constructor(private supplierService : SupplierService,
+  constructor(private customerService : CustomerService,
               private sharedSercice : SharedService) { }
 
   ngOnInit(): void {
-    this.getSupplierData();
+    this.getCustomersData();
 
   }
 
-  getSupplierData(){
+  getCustomersData(){
         if(this.page == 1){
           this.skip = 0;
         }else{
@@ -33,19 +33,17 @@ export class SupplierListComponent implements OnInit {
           'limit' : this.limit,
           'skip' :this.skip
         }
-            this.supplierService.getAllSuppliers(requestObj).subscribe({
+            this.customerService.getAllCustomers(requestObj).subscribe({
           next: (res : any) => {
 
-              this.suppliers = Object.keys(res.data).length > 0 ? Object.values(res.data) : null;
-              this.totalItems = res.total;
-
+           this.customers = Object.values(res.data)
+           this.totalItems = res.total;
           },
           error: (error) => console.log(error)
       });
   }
 
-  deleteSupplier(id){
-
+  deleteCustomer(id){
     Swal.fire({
       title: '<h3>Do you want to delete Supplier ?</h3>',
       icon: 'question',
@@ -55,7 +53,7 @@ export class SupplierListComponent implements OnInit {
     }).then((result) => {
 
       if (result.isConfirmed) {
-        this.supplierService.deleteSupplier(id).subscribe({
+        this.customerService.deleteCustomer(id).subscribe({
           next: result => {
             Swal.fire('Supplier deleted succesfully', '', 'success')
             this.ngOnInit();
@@ -69,8 +67,5 @@ export class SupplierListComponent implements OnInit {
       }
     })
 
-
   }
-
-
 }
