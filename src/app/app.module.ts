@@ -36,6 +36,9 @@ import { StockComponent } from './pages/stock/stock.component';
 import { CustomerComponent } from './pages/customer/customer.component';
 import { CustomerListComponent } from './pages/customer/customer-list/customer-list.component';
 import { CustomerAddComponent } from './pages/customer/customer-add/customer-add.component';
+import { PosComponent } from './pages/pos/pos.component';
+import { PosProductsComponent } from './pages/pos/pos-products/pos-products.component';
+import { PosCardComponent } from './pages/pos/pos-card/pos-card.component';
 
 
 
@@ -77,7 +80,10 @@ import { CustomerAddComponent } from './pages/customer/customer-add/customer-add
     StockComponent,
     CustomerComponent,
     CustomerListComponent,
-    CustomerAddComponent
+    CustomerAddComponent,
+    PosComponent,
+    PosProductsComponent,
+    PosCardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

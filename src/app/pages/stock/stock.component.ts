@@ -78,28 +78,5 @@ export class StockComponent implements OnInit {
   }
 });
 
-  // deleteProduct(id){
-  //   Swal.fire({
-  //     title: '<h3>Do you want to delete Product ?</h3>',
-  //     icon: 'question',
-  //     iconColor:"#fec9bd80",
-  //     showCancelButton: true,
-  //     confirmButtonText: 'Delete',
-  //   }).then((result) => {
-
-  //     if (result.isConfirmed) {
-  //       this.productService.deleteProduct(id).subscribe({
-  //         next: result => {
-  //           Swal.fire('Product deleted succesfully', '', 'success')
-  //           this.ngOnInit();
-  //         },
-  //         error: error => {
-  //           Swal.fire('fail to delete the Product', '', 'error')
-  //         }
-  //       });
-
-  //     }
-  //   })
-
   }
 }

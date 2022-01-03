@@ -25,6 +25,7 @@ import { StockComponent } from 'src/app/pages/stock/stock.component';
 import { CustomerComponent } from '../../pages/customer/customer.component';
 import { CustomerListComponent } from '../../pages/customer/customer-list/customer-list.component';
 import { CustomerAddComponent } from 'src/app/pages/customer/customer-add/customer-add.component';
+import { PosComponent } from '../../pages/pos/pos.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -71,5 +72,6 @@ export const AdminLayoutRoutes: Routes = [
       {path:'' , component : CustomerListComponent},
       {path:'add' , component : CustomerAddComponent},
       {path:':id/edit' , component : CustomerAddComponent}
-  ] }
+  ] },
+  { path: 'pos', component: PosComponent},
 ];

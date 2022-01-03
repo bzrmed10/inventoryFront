@@ -35,6 +35,11 @@ export class ProductService {
   getProductByIdApi(id : number){
     return this.http.get(this.REST_API_SERVER+'/product/'+id);
   }
+  searchProduct(requestObj){
+    return this.http.post(this.REST_API_SERVER+'/product/search',requestObj);
+  }
+
+
   changeQty(id : number,newValue : any){
     return this.http.put(this.REST_API_SERVER+'/product/quantity/'+id,newValue);
   }

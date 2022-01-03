@@ -21919,3 +21919,21 @@ img.product_img {
     width: 60px;
     margin-right: 11px;
 }
+
+.card-body.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-body.product-name {
+  padding: 0.5rem;
+}
+
+.searchDiv {
+  display: flex;
+
+}
+
+.card {
+  cursor: pointer;
+}

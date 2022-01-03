@@ -1,0 +1,66 @@
+<div class="card bg-secondary shadow">
+  <div class="card-header bg-white border-0">
+    <div class="row align-items-center">
+      <div class="col-8">
+        <h3 class="mb-0">Products Sold</h3>
+      </div>
+
+    </div>
+  </div>
+  <div class="searchDiv">
+    <div class="col-md-4 mt-3">
+      <div class="form-group mb--1">
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="uil uil-search"></i></span>
+          </div>
+          <input class="form-control form-control-alternative"
+          placeholder="Search"
+          type="text"
+          (keyup)="applyFilter($event)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-3">
+      <div class="form-group mb--1">
+          <select  class="form-control form-control-alternative" #category
+          (change)="onChangeSelect(category.value,'category')">
+            <option value="0" selected>All Categories</option>
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{category.category_name}}
+              </option>
+          </select>
+    </div>
+  </div>
+  <div class="col-md-4 mt-3">
+    <div class="form-group mb--1">
+          <select class="form-control form-control-alternative" #supplier
+          (change)="onChangeSelect(supplier.value,'supplier')">
+            <option value="0" selected>All Suppliers</option>
+              <option  *ngFor="let supplier of suppliers" [value]="supplier.id">
+                {{supplier.name}}
+              </option>
+          </select>
+    </div>
+  </div>
+  </div>
+  <div class="card-body products mt-0" >
+
+    <div class="card col-md-3"
+    *ngFor="let product of products" (click)="(product.product_quantity == 0) ? emptyStock() : addToCart(product.id) " >
+      <img class="card-img-top" [src]="product.product_image" alt="Card image cap">
+      <div class="card-body product-name text-center">
+        <h5 class="card-title mb-0">{{ product.product_name }}</h5>
+        <span class="badge badge-primary">Qty : {{product.product_quantity }} </span>
+        <div [innerHtml]="product.status"></div>
+      </div>
+    </div>
+
+  </div>
+  <ngb-pagination class="d-flex justify-content-end mx-2"
+  [collectionSize]="totalItems"
+  [pageSize]="limit"
+   [(page)]="page"
+   (pageChange)="getProductsData()"
+   aria-label="Default pagination"></ngb-pagination>
+</div>

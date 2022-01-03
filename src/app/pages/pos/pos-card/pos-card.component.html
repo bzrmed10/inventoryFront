@@ -1,0 +1,114 @@
+<div class="card bg-secondary shadow">
+  <div class="card-header bg-white border-0">
+    <div class="row align-items-center">
+      <div class="col-8">
+        <h3 class="mb-0">Expense Insert</h3>
+      </div>
+
+    </div>
+  </div>
+  <div class="table-responsive bg-white">
+    <table class="table align-items-center table-flush" *ngIf="cartProducts != null">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <!-- <th scope="col">Unit</th> -->
+          <th scope="col">Total</th>
+          <th scope="col"></th>
+
+
+        </tr>
+      </thead>
+      <tbody >
+
+        <tr *ngFor="let cartProduct of cartProducts ">
+          <td><b>{{cartProduct.product_name}}</b></td>
+          <td><a class="btn btn-icon-only text-success" (click)="increment(cartProduct.id)">
+            <i class="uil uil-plus"></i>
+          </a>{{cartProduct.product_qty}}
+          <button class="btn btn-icon-only text-danger" (click)="decrement(cartProduct.id)"
+            [disabled]="cartProduct.product_qty == 1"
+          >
+            <i class="uil uil-minus"></i>
+          </button>
+        </td>
+          <!-- <td>{{cartProduct.product_price}}</td> -->
+          <td>{{cartProduct.sub_total | currency}}</td>
+          <td class="text-right">
+            <a class="btn btn-icon-only text-primary" (click)="deleteFromCart(cartProduct.id)">
+              <i class="uil uil-times"></i>
+            </a>
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total Quantity : <strong>{{ totalQuantity }}</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Sub Total : <strong>{{ subTotal | currency}}</strong>
+      </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      TVA : <strong>{{ tva }} %</strong>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Total Amount : <strong> {{ totalAmout | currency}}</strong>
+    </li>
+      </ul>
+      <hr>
+      <form  (ngSubmit)="addOrder(orderForm)" #orderForm ="ngForm">
+
+        <div class="form-group mb-1">
+          <label class="form-control-label" for="input-first-name">Customer Name</label>
+          <select  class="form-control form-control-alternative"
+          id="customer_id" name="customer_id" ngModel>
+              <option *ngFor="let customer of customers" [value]="customer.id">
+                {{customer.fullname}}
+              </option>
+          </select>
+          <p class="text-danger" *ngIf="error.customer_id"><em><small> {{ error.customer_id }}</small></em></p>
+
+        </div>
+        <div class="form-group mb-1">
+          <label class="form-control-label" for="input-first-name">Pay</label>
+          <input
+          type="number"
+          id="pay"
+          class="form-control form-control-alternative"
+          name="pay" ngModel
+           >
+        </div>
+        <div class="form-group mb-1">
+          <label class="form-control-label" for="input-first-name">Due</label>
+          <input
+          type="number"
+          id="due"
+          class="form-control form-control-alternative"
+          name="due" ngModel
+           >
+
+        </div>
+        <div class="form-group mb-1">
+          <label class="form-control-label" for="input-first-name">Pay By</label>
+
+          <select  class="form-control form-control-alternative" id="payby" name="payby" ngModel>
+              <option value="Gift Card" >Gift Card</option>
+              <option value="Hand Cash">Hand Cash</option>
+          </select>
+          <p class="text-danger" *ngIf="error.payby"><em><small> {{ error.payby }}</small></em></p>
+
+        </div>
+        <button type="submit" class="btn btn-success mt-2">Submit</button>
+      </form>
+
+  </div>
+</div>

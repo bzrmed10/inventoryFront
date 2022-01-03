@@ -15,6 +15,10 @@ export class CustomerService {
 
     return this.http.post<any>(this.REST_API_SERVER+'/customer',requestObj);
    }
+   getAllCtm(){
+
+    return this.http.get(this.REST_API_SERVER+'/customer');
+   }
 
    addCustomer(customer :Customer){
     return this.http.post(this.REST_API_SERVER+'/customer/store',customer);
