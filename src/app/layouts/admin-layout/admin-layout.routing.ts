@@ -26,6 +26,9 @@ import { CustomerComponent } from '../../pages/customer/customer.component';
 import { CustomerListComponent } from '../../pages/customer/customer-list/customer-list.component';
 import { CustomerAddComponent } from 'src/app/pages/customer/customer-add/customer-add.component';
 import { PosComponent } from '../../pages/pos/pos.component';
+import { OrderComponent } from 'src/app/pages/order/order.component';
+import { OrderListComponent } from '../../pages/order/order-list/order-list.component';
+import { OrderDetailComponent } from 'src/app/pages/order/order-detail/order-detail.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -74,4 +77,9 @@ export const AdminLayoutRoutes: Routes = [
       {path:':id/edit' , component : CustomerAddComponent}
   ] },
   { path: 'pos', component: PosComponent},
+  { path: 'order', component: OrderComponent,
+  children : [
+   {path:'' , component : OrderListComponent},
+   {path:':id/detail' , component : OrderDetailComponent}
+] },
 ];

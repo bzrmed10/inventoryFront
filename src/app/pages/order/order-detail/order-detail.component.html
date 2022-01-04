@@ -1,0 +1,106 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">Order Detail</h3>
+              </div>
+
+            </div>
+          </div>
+          <div class="row mx-2">
+            <div class="col-md-6 my-2" *ngIf="order">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  Name :   <strong>{{ order.fullname }}</strong>
+                </li>
+                <li class="list-group-item">
+                  Phone : <strong> {{ order.phone }}</strong>
+              </li>
+
+            <li class="list-group-item">
+              Adress : <strong>{{ order.adress }}</strong>
+            </li>
+            <li class="list-group-item">
+              Order Date : <strong> {{ order.order_date }} </strong>
+            </li>
+            <li class="list-group-item">
+              Pay Through : <strong> {{ order.payby }} </strong>
+            </li>
+              </ul>
+            </div>
+            <div class="col-md-6 my-2" *ngIf="order">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  Sub total : <strong> {{ order.sub_total | currency }} </strong>
+                </li>
+                <li class="list-group-item">
+                  TVA :  <strong> {{ order.tva }} %</strong>
+              </li>
+            <li class="list-group-item">
+              Pay Amount :  <strong> {{ order.pay | currency}}</strong>
+            </li>
+            <li class="list-group-item">
+              Due Amount :  <strong> {{ order.due | currency }}</strong>
+           </li>
+           <li class="list-group-item">
+            Total Amount: <strong>{{ order.total | currency}}</strong>
+          </li>
+              </ul>
+            </div>
+            <div class="table-responsive col-md-12">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Product code</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit price</th>
+                    <th scope="col">Total</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <a href="javascript:void(0)" class="">
+                          <img class="product_img" alt="user" [src]="product.product_image ? product.product_image : 'https://ui-avatars.com/api/?name='+product.product_name+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
+                        </a>
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">{{product.product_name}}</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      {{product.product_code }}
+                    </td>
+                    <td>
+                      {{product.product_qty }}
+                    </td>
+                    <td>
+                      {{product.product_price | currency}}
+                    </td>
+                    <td >
+                      {{product.sub_total | currency}}
+                    </td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+            </div>
+            <div class="card-footer py-4">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>

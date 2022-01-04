@@ -17,7 +17,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/expense', title: 'Expense',  icon:'ni-money-coins', class: '' },
     { path: '/customer', title: 'Customers',  icon:'ni-world-2', class: '' },
     { path: '/salary', title: 'Salary',  icon:'ni-credit-card', class: '' },
-    { path: '/orders', title: 'Orders',  icon:'ni-cart', class: '' },
+    { path: '/order', title: 'Orders',  icon:'ni-cart', class: '' },
     { path: '/stock', title: 'Stock',  icon:'ni-shop', class: '' }
 
 ];

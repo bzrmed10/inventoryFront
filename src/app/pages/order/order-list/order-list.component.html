@@ -1,0 +1,80 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--5">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">List Orders</h3>
+              </div>
+
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Total Amount</th>
+                  <th scope="col">Pay</th>
+                  <th scope="col">Due</th>
+                  <th scope="col">Pay By</th>
+                  <th scope="col">Action</th>
+
+                </tr>
+              </thead>
+              <tbody *ngIf="(totalItems != 0) ; else nodata">
+                <tr *ngFor="let order of orders">
+
+                  <td>
+                    <b>{{order.fullname}}</b>
+                  </td>
+                  <td>
+                    <span class="badge badge-pill badge-success font12">{{ order.total | currency }}</span>
+                  </td>
+                  <td>
+                    {{ order.pay | currency}}
+                  </td>
+                  <td>
+                    {{order.due | currency}}
+                  </td>
+                  <td>
+                    {{order.payby }}
+
+                  </td>
+
+
+
+                  <td class="text-center">
+                    <a class="btn btn-icon-only text-primary" [routerLink]="[order.id,'detail']">
+                      <i class="uil uil-file-info-alt"></i>
+                    </a>
+
+                  </td>
+                </tr>
+
+              </tbody>
+              <ng-template #nodata>
+                <tr>
+                  <td colspan="5" class="d-flex justify-center"> No Orders</td>
+                </tr>
+              </ng-template>
+            </table>
+          </div>
+          <div class="card-footer py-4">
+
+            <ngb-pagination class="d-flex justify-content-end"
+            [collectionSize]="totalItems"
+            [pageSize]="limit"
+             [(page)]="page"
+             (pageChange)="getOrdersData()"
+             aria-label="Default pagination"></ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

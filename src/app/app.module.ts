@@ -39,6 +39,9 @@ import { CustomerAddComponent } from './pages/customer/customer-add/customer-add
 import { PosComponent } from './pages/pos/pos.component';
 import { PosProductsComponent } from './pages/pos/pos-products/pos-products.component';
 import { PosCardComponent } from './pages/pos/pos-card/pos-card.component';
+import { OrderComponent } from './pages/order/order.component';
+import { OrderListComponent } from './pages/order/order-list/order-list.component';
+import { OrderDetailComponent } from './pages/order/order-detail/order-detail.component';
 
 
 
@@ -83,7 +86,10 @@ import { PosCardComponent } from './pages/pos/pos-card/pos-card.component';
     CustomerAddComponent,
     PosComponent,
     PosProductsComponent,
-    PosCardComponent
+    PosCardComponent,
+    OrderComponent,
+    OrderListComponent,
+    OrderDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
