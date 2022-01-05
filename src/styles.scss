@@ -17452,7 +17452,7 @@ a.btn-icon-only
 
 .card-stats .card-body
 {
-    padding: 1rem 1.5rem;
+    padding: 2rem 1.5rem;
 }
 
 .card-stats .card-status-bullet
@@ -21936,4 +21936,31 @@ img.product_img {
 
 .card {
   cursor: pointer;
+}
+
+.bg-purple{
+ background: #825ee4;
+}
+
+.bg-secondBlue{
+  background-color: #4280edd6;
+}
+
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar{
+  width: 5px;
+  background-color: var(#8898aa61);
+  border-radius: .5rem;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(#f6f9fc);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: var(--blue);
+
 }

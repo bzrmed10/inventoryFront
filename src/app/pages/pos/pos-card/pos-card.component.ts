@@ -1,15 +1,16 @@
 import { CustomerService } from '../../customer/customer.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PosService } from '../pos.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pos-card',
   templateUrl: './pos-card.component.html',
   styleUrls: ['./pos-card.component.scss']
 })
-export class PosCardComponent implements OnInit {
+export class PosCardComponent implements OnInit,OnDestroy {
   customers;
   cartProducts = null;
   totalQuantity;
@@ -17,6 +18,7 @@ export class PosCardComponent implements OnInit {
   tva = 25;
   totalAmout ;
   error = { payby : null , customer_id : null};
+  subscribtion : Subscription;
   constructor(private customerService :CustomerService ,
               private posService : PosService ,
               private sharedSercice : SharedService) { }
@@ -34,7 +36,7 @@ export class PosCardComponent implements OnInit {
     });
 
 
-  this.posService.newAddToCart.subscribe((result : number) =>{
+  this.subscribtion = this.posService.newAddToCart.subscribe((result : number) =>{
     if(result)
     {
 
@@ -135,6 +137,10 @@ export class PosCardComponent implements OnInit {
 
       }
     });
+  }
+
+  ngOnDestroy(): void {
+      this.subscribtion.unsubscribe();
   }
 
 }

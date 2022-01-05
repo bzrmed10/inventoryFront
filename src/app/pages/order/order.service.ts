@@ -14,6 +14,12 @@ export class OrderService {
 
    }
 
+   getTodayOrders(requestObj){
+
+    return this.http.post<any>(this.REST_API_SERVER+'/order/today',requestObj);
+
+   }
+
    getOrderDetail(id){
     return this.http.get(this.REST_API_SERVER+'/order/detail/'+id);
 
