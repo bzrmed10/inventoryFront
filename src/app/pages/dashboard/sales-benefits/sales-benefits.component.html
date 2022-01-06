@@ -1,0 +1,23 @@
+
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Sales and Net Revenue in past 7 days</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="py-2" *ngIf="Highcharts != null">
+          <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="chartOptions"
+          style="width: 100%; height: 400px; display: block;"
+       ></highcharts-chart>
+        </div>
+
+      </div>
+
+
+

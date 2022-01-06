@@ -13,8 +13,13 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodayOrdersComponent } from 'src/app/pages/dashboard/today-orders/today-orders.component';
+import { CategoryChartComponent } from 'src/app/pages/dashboard/category-chart/category-chart.component';
+import {
+    WeeklySalesOrdersComponent
+} from '../../pages/dashboard/weekly-sales-orders/weekly-sales-orders.component';
 
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import { SalesBenefitsComponent } from 'src/app/pages/dashboard/sales-benefits/sales-benefits.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -24,7 +29,8 @@ import { TodayOrdersComponent } from 'src/app/pages/dashboard/today-orders/today
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    HighchartsChartModule
   ],
   declarations: [
     DashboardComponent,
@@ -32,7 +38,10 @@ import { TodayOrdersComponent } from 'src/app/pages/dashboard/today-orders/today
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    TodayOrdersComponent
+    TodayOrdersComponent,
+    CategoryChartComponent,
+    WeeklySalesOrdersComponent,
+    SalesBenefitsComponent
   ]
 })
 

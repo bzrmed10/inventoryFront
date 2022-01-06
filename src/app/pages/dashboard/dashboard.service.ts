@@ -11,4 +11,17 @@ export class DashboardService {
   getStatistics(){
     return this.http.get(this.REST_API_SERVER+'/dashboard/getStatistics');
   }
+
+  getSalesByCategory(){
+    return this.http.get(this.REST_API_SERVER+'/dashboard/getSalesByCategory');
+  }
+
+  getTotalOrdersProduct(){
+    return this.http.get(this.REST_API_SERVER+'/dashboard/getTotalOrdersProduct');
+  }
+  getSalesBenefits(){
+    return this.http.get(this.REST_API_SERVER+'/dashboard/getSalesBenefits');
+  }
+
+
 }
