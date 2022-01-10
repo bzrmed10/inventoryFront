@@ -7,7 +7,7 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">List of Employee Salaries</h3>
+                <h3 class="mb-0 text-uppercase">List of Employee Salaries</h3>
               </div>
               <div class="col-4 text-right">
                 <a [routerLink]="['monthpay']" class="btn btn-sm btn-primary">Salaries by Month</a>
@@ -33,7 +33,7 @@
                         <img alt="user" [src]="employee.photo ? employee.photo : 'https://ui-avatars.com/api/?name='+employee.fullname+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
                       </a>
                       <div class="media-body">
-                        <span class="mb-0 text-sm">{{employee.fullname}}</span>
+                        <span class="mb-0 text-sm">{{employee.fullname | titlecase }}</span>
                       </div>
                     </div>
                   </th>

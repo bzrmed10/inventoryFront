@@ -82,11 +82,11 @@ export class SalesBenefitsComponent implements OnInit {
       {
         name: 'Sales with TVA',
         data: tableSalesTva,
-        color:"#8eec7a96"
+        color:"#8965e0ab"
     },{
       name: 'Net revenue',
         data: tableBenefits,
-        color:"#825ee4"
+        color:"#8eec7a96"
     }
     ]
     };

@@ -2,7 +2,7 @@
   <div class="card-header bg-white border-0">
     <div class="row align-items-center">
       <div class="col-8">
-        <h3 class="mb-0">Products Sold</h3>
+        <h3 class="mb-0 text-uppercase">Products Sold</h3>
       </div>
 
     </div>
@@ -45,12 +45,14 @@
   </div>
   </div>
   <div class="card-body products mt-0" >
-
+    <div class="alert alert-secondary bg-white col-md-12" role="alert" *ngIf="totalItems == 0">
+      <span class="alert-inner--text text-default">No Products</span>
+    </div>
     <div class="card col-md-3"
     *ngFor="let product of products" (click)="(product.product_quantity == 0) ? emptyStock() : addToCart(product.id) " >
       <img class="card-img-top" [src]="product.product_image" alt="Card image cap">
       <div class="card-body product-name text-center">
-        <h5 class="card-title mb-0">{{ product.product_name }}</h5>
+        <h5 class="card-title mb-0">{{ product.product_name | titlecase | limitWord : 13 }}</h5>
         <span class="badge badge-primary">Qty : {{product.product_quantity }} </span>
         <div [innerHtml]="product.status"></div>
       </div>

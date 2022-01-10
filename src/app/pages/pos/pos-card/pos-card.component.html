@@ -2,13 +2,13 @@
   <div class="card-header bg-white border-0">
     <div class="row align-items-center">
       <div class="col-8">
-        <h3 class="mb-0">Expense Insert</h3>
+        <h3 class="mb-0 text-uppercase">Cart </h3>
       </div>
 
     </div>
   </div>
   <div class="table-responsive bg-white">
-    <table class="table align-items-center table-flush" *ngIf="cartProducts != null">
+    <table class="table align-items-center table-flush" >
       <thead class="thead-light">
         <tr>
           <th scope="col">Name</th>
@@ -20,10 +20,10 @@
 
         </tr>
       </thead>
-      <tbody >
+      <tbody *ngIf="showTable ; else nodata">
 
         <tr *ngFor="let cartProduct of cartProducts ">
-          <td><b>{{cartProduct.product_name}}</b></td>
+          <td><b>{{cartProduct.product_name | titlecase }}</b></td>
           <td><a class="btn btn-icon-only text-success" (click)="increment(cartProduct.id)">
             <i class="uil uil-plus"></i>
           </a>{{cartProduct.product_qty}}
@@ -44,7 +44,11 @@
         </tr>
 
       </tbody>
-
+      <ng-template #nodata>
+        <tr>
+          <td colspan="5" class="d-flex justify-center"> No Products in Cart</td>
+        </tr>
+      </ng-template>
     </table>
   </div>
 
@@ -101,8 +105,10 @@
           <label class="form-control-label" for="input-first-name">Pay By</label>
 
           <select  class="form-control form-control-alternative" id="payby" name="payby" ngModel>
-              <option value="Gift Card" >Gift Card</option>
-              <option value="Hand Cash">Hand Cash</option>
+            <option value="Hand Cash">Credit Card</option>
+            <option value="Gift Card" >Gift Card</option>
+            <option value="Hand Cash">Hand Cash</option>
+
           </select>
           <p class="text-danger" *ngIf="error.payby"><em><small> {{ error.payby }}</small></em></p>
 

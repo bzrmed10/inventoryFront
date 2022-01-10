@@ -8,7 +8,7 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">List Categories</h3>
+                <h3 class="mb-0 text-uppercase">List Categories</h3>
               </div>
 
             </div>
@@ -20,14 +20,14 @@
                   <th scope="col">Category name</th>
                   <th scope="col">Created At</th>
                   <th scope="col">Updated At</th>
-                  <th scope="col">Action</th>
+                  <th scope="col" class="text-center">Action</th>
                 </tr>
               </thead>
               <tbody *ngIf="(totalItems != 0) ; else nodata">
                 <tr *ngFor="let category of categories">
                   <td>
 
-                      <span class="mb-0 text-sm"><b>{{category.category_name}}</b></span>
+                      <span class="mb-0 text-sm"><b>{{category.category_name | titlecase }}</b></span>
 
                   </td>
                   <td scope="row">
@@ -40,7 +40,7 @@
                   </td>
 
 
-                  <td class="text-right">
+                  <td class="text-center">
                     <a class="btn btn-icon-only text-danger" (click)="deleteCategory(category.id)">
                       <i class="uil uil-trash-alt"></i>
                     </a>

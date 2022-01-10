@@ -7,7 +7,7 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">List Products</h3>
+                <h3 class="mb-0 text-uppercase">List Products</h3>
               </div>
               <div class="col text-right">
                 <a [routerLink]="['add']" class="btn btn-sm btn-primary">Add new Product</a>
@@ -38,7 +38,7 @@
                         <img class="product_img" alt="user" [src]="product.product_image ? product.product_image : 'https://ui-avatars.com/api/?name='+product.product_name+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
                       </a>
                       <div class="media-body">
-                        <span class="mb-0 text-sm">{{product.product_name}}</span>
+                        <span class="mb-0 text-sm">{{product.product_name | titlecase }}</span>
                       </div>
                     </div>
                   </th>

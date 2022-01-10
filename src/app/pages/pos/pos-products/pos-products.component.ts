@@ -16,7 +16,7 @@ export class PosProductsComponent implements OnInit {
   categories;
   suppliers;
   page = 1 ;
-  limit = 10;
+  limit = 12;
   skip : any;
   totalItems;
   constructor(private productService : ProductService,

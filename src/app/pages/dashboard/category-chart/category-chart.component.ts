@@ -39,7 +39,9 @@ export class CategoryChartComponent {
 
         this.categoryData = res
         let chart = root.container.children.push(
-          am5percent.PieChart.new(root, {})
+          am5percent.PieChart.new(root, {
+            layout: root.verticalLayout
+          })
         );
 
         let data = this.categoryData;
@@ -55,7 +57,8 @@ export class CategoryChartComponent {
 
           // Define data
           series.data.setAll(data);
-
+          series.labels.template.set("forceHidden", true);
+          series.ticks.template.set("forceHidden", true);
           series.slices.template.setAll({
             strokeWidth: 3,
             stroke: am5.color(0xffffff)
@@ -65,7 +68,11 @@ export class CategoryChartComponent {
           let legend = chart.children.push(am5.Legend.new(root, {
             centerX: am5.percent(50),
             x: am5.percent(50),
-             layout: root.horizontalLayout
+            layout: am5.GridLayout.new(root, {
+              maxColumns: 3,
+              fixedWidthGrid: true
+            })
+
           }));
 
                 legend.data.setAll(series.dataItems);

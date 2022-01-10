@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class PosCardComponent implements OnInit,OnDestroy {
   customers;
+  showTable = false;
   cartProducts = null;
   totalQuantity;
   subTotal;
@@ -56,6 +57,11 @@ export class PosCardComponent implements OnInit,OnDestroy {
     this.posService.getAllCart().subscribe({
       next: (res : any) => {
         this.cartProducts = res;
+        if(this.cartProducts.length > 0){
+          this.showTable = true;
+        }else{
+          this.showTable = false;
+        }
         this.changeTotal(this.cartProducts)
 
       },

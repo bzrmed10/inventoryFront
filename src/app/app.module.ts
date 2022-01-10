@@ -43,6 +43,8 @@ import { PosCardComponent } from './pages/pos/pos-card/pos-card.component';
 import { OrderComponent } from './pages/order/order.component';
 import { OrderListComponent } from './pages/order/order-list/order-list.component';
 import { OrderDetailComponent } from './pages/order/order-detail/order-detail.component';
+import { LimitWordPipe } from './pipes/limit-word.pipe';
+
 
 
 
@@ -90,7 +92,8 @@ import { OrderDetailComponent } from './pages/order/order-detail/order-detail.co
     PosCardComponent,
     OrderComponent,
     OrderListComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    LimitWordPipe
 
   ],
   providers: [],

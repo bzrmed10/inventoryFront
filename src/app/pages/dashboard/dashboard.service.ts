@@ -22,6 +22,10 @@ export class DashboardService {
   getSalesBenefits(){
     return this.http.get(this.REST_API_SERVER+'/dashboard/getSalesBenefits');
   }
+  getTopProducts(){
+    return this.http.get(this.REST_API_SERVER+'/dashboard/getTopProducts');
+  }
+
 
 
 }

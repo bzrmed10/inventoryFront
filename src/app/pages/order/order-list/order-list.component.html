@@ -7,7 +7,7 @@
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">List Orders</h3>
+                <h3 class="mb-0 text-uppercase">List Orders</h3>
               </div>
 
             </div>
@@ -29,7 +29,7 @@
                 <tr *ngFor="let order of orders">
 
                   <td>
-                    <b>{{order.fullname}}</b>
+                    <b>{{order.fullname | titlecase }}</b>
                   </td>
                   <td>
                     <span class="badge badge-pill badge-success font12">{{ order.total | currency }}</span>
@@ -41,7 +41,8 @@
                     {{order.due | currency}}
                   </td>
                   <td>
-                    {{order.payby }}
+                    <span class="badge badge-pill badge-primary">{{ order.payby }}</span>
+
 
                   </td>
 

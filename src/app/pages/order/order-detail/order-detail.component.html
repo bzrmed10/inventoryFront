@@ -3,11 +3,11 @@
     <!-- Table -->
     <div class="row">
       <div class="col">
-        <div class="card shadow">
+        <div class="card bg-secondary shadow">
           <div class="card-header border-0">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="mb-0">Order Detail</h3>
+                <h3 class="mb-0 text-uppercase">Order Detail</h3>
               </div>
 
             </div>
@@ -16,43 +16,48 @@
             <div class="col-md-6 my-2" *ngIf="order">
               <ul class="list-group">
                 <li class="list-group-item">
-                  Name :   <strong>{{ order.fullname }}</strong>
-                </li>
+                  <i class="uil uil-user text-primary"></i> Name :   <strong>{{ order.fullname | titlecase}}</strong>
+
                 <li class="list-group-item">
-                  Phone : <strong> {{ order.phone }}</strong>
+                  <i class="uil uil-phone text-primary"></i> Phone : <strong> {{ order.phone }}</strong>
               </li>
 
             <li class="list-group-item">
-              Adress : <strong>{{ order.adress }}</strong>
+              <i class="uil uil-home text-primary"></i> Adress : <strong>{{ order.adress }}</strong>
             </li>
             <li class="list-group-item">
-              Order Date : <strong> {{ order.order_date }} </strong>
+              <i class="uil uil-calendar-alt text-primary"></i> Order Date : <strong> {{ order.order_date }} </strong>
             </li>
             <li class="list-group-item">
-              Pay Through : <strong> {{ order.payby }} </strong>
+              <i class="uil uil-transaction text-primary"></i> Pay Through : <strong> {{ order.payby }} </strong>
             </li>
-              </ul>
+          </ul>
             </div>
             <div class="col-md-6 my-2" *ngIf="order">
               <ul class="list-group">
                 <li class="list-group-item">
+                  <i class="uil uil-money-bill text-primary"></i>
                   Sub total : <strong> {{ order.sub_total | currency }} </strong>
                 </li>
                 <li class="list-group-item">
+                  <i class="uil uil-percentage text-primary"></i>
                   TVA :  <strong> {{ order.tva }} %</strong>
               </li>
             <li class="list-group-item">
+              <i class="uil uil-bill text-primary"></i>
               Pay Amount :  <strong> {{ order.pay | currency}}</strong>
             </li>
             <li class="list-group-item">
+              <i class="uil uil-money-withdrawal text-primary"></i>
               Due Amount :  <strong> {{ order.due | currency }}</strong>
            </li>
            <li class="list-group-item">
-            Total Amount: <strong>{{ order.total | currency}}</strong>
+            <i class="uil uil-usd-circle text-primary"></i>
+            Total Amount : <strong class="text-success">{{ order.total | currency}}</strong>
           </li>
               </ul>
             </div>
-            <div class="table-responsive col-md-12">
+            <div class="table-responsive col-md-12 mb-4">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
@@ -64,7 +69,7 @@
 
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-white">
                   <tr *ngFor="let product of products">
                     <th scope="row">
                       <div class="media align-items-center">
@@ -72,21 +77,21 @@
                           <img class="product_img" alt="user" [src]="product.product_image ? product.product_image : 'https://ui-avatars.com/api/?name='+product.product_name+'&amp;background=7889e8&amp;bold=true&amp;color=3c4d69'">
                         </a>
                         <div class="media-body">
-                          <span class="mb-0 text-sm">{{product.product_name}}</span>
+                          <span class="mb-0 text-sm">{{product.product_name | titlecase }}</span>
                         </div>
                       </div>
                     </th>
                     <td>
                       {{product.product_code }}
                     </td>
-                    <td>
-                      {{product.product_qty }}
+                    <td><span class="badge badge-pill badge-danger font12">{{ product.product_qty }}</span>
+
                     </td>
                     <td>
                       {{product.product_price | currency}}
                     </td>
                     <td >
-                      {{product.sub_total | currency}}
+                      <b>{{product.sub_total | currency}}</b>
                     </td>
 
                   </tr>
@@ -94,8 +99,6 @@
                 </tbody>
 
               </table>
-            </div>
-            <div class="card-footer py-4">
             </div>
           </div>
 

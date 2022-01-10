@@ -20,6 +20,7 @@ import {
 
 import { HighchartsChartModule } from 'highcharts-angular';
 import { SalesBenefitsComponent } from 'src/app/pages/dashboard/sales-benefits/sales-benefits.component';
+import { TopProductsComponent } from 'src/app/pages/dashboard/top-products/top-products.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -41,7 +42,8 @@ import { SalesBenefitsComponent } from 'src/app/pages/dashboard/sales-benefits/s
     TodayOrdersComponent,
     CategoryChartComponent,
     WeeklySalesOrdersComponent,
-    SalesBenefitsComponent
+    SalesBenefitsComponent,
+    TopProductsComponent
   ]
 })
 

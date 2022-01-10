@@ -1,18 +1,18 @@
-<div class="header bg-gradient-primary pb-7 pt-5 pt-md-8">
+<div class="header pb-7 pt-5 pt-md-6">
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
       <div class="row">
         <div class="col-xl-3 col-lg-6">
           <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
+            <div class="card-body bg-green-mat">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Today Orders</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ data.orders }}</span>
+                  <h4 class="card-title text-uppercase text-white mb-0">Today Orders</h4>
+                  <span class="h2 font-weight-bold mb-0 text-white">{{ data.orders }}</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-default text-white rounded-circle shadow">
+                  <div class="icon icon-shape bg-white rounded-circle shadow">
                     <i class="uil uil-shopping-cart"></i>
                   </div>
                 </div>
@@ -26,14 +26,14 @@
         </div>
         <div class="col-xl-3 col-lg-6">
           <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
+            <div class="card-body bg-secondblue-mat">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Today Sales</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ data.sales | currency}}</span>
+                  <h4 class="card-title text-uppercase text-white mb-0">Today Sales</h4>
+                  <span class="h2 font-weight-bold mb-0 text-white">{{ data.sales | currency}}</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-secondBlue text-white rounded-circle shadow">
+                  <div class="icon icon-shape bg-white rounded-circle shadow">
                     <i class="uil uil-shopping-basket"></i>
                   </div>
                 </div>
@@ -47,14 +47,14 @@
         </div>
         <div class="col-xl-3 col-lg-6">
           <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
+            <div class="card-body bg-primary-mat">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ data.products }}</span>
+                  <h4 class="card-title text-uppercase text-white mb-0">Products</h4>
+                  <span class="h2 font-weight-bold mb-0 text-white">{{ data.products }}</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                  <div class="icon icon-shape bg-white  rounded-circle shadow">
                     <i class="uil uil-shopping-bag"></i>
                   </div>
                 </div>
@@ -68,14 +68,14 @@
         </div>
         <div class="col-xl-3 col-lg-6">
           <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
+            <div class="card-body bg-purple-mat">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Customers</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ data.customers }}</span>
+                  <h4 class="card-title text-uppercase text-white mb-0">Customers</h4>
+                  <span class="h2 font-weight-bold mb-0 text-white">{{ data.customers }}</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-purple text-white rounded-circle shadow">
+                  <div class="icon icon-shape bg-white  rounded-circle shadow">
                     <i class="uil uil-users-alt"></i>
                   </div>
                 </div>
@@ -92,16 +92,18 @@
   </div>
 </div>
 
-<div class="container-fluid mt--7">
+<div class="container-fluid mt--8">
 
   <div class="row mt-5">
-    <div class="col-xl-4 mb-5 mb-xl-0">
+    <div class="col-xl-3 mb-5 mb-xl-0">
       <app-today-orders></app-today-orders>
     </div>
-    <div class="col-xl-8 mb-5 mb-xl-0">
+    <div class="col-xl-6 mb-5 mb-xl-0">
       <app-category-chart></app-category-chart>
     </div>
-
+    <div class="col-xl-3 mb-5 mb-xl-0">
+      <app-top-products></app-top-products>
+    </div>
     <div class="col-xl-6 mt-2 mb-xl-0">
       <app-weekly-sales-orders></app-weekly-sales-orders>
     </div>
